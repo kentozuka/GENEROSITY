@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GENEROSITY 提出課題
 
-## Getting Started
+## 技術スタック
 
-First, run the development server:
+- フロントエンド：React (Next.js)
+- バックエンド：Next.js
+- データベース：PostgreSQL
+- インフラ：Vercel
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 作成にかかった時間
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+約 時間（[Wakatime](https://wakatime.com/@6349807e-05ff-4de4-a2db-b1681b3c76c6/projects/zkhjrzzqzx?start=2024-02-15&end=2024-02-21)参照）
+（エディターを開いていてもカウントされるため正確ではありません。→keyboard timeout15 分設定）
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 課題詳細
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 課題概要
 
-## Learn More
+- 大学生が新学期に受講登録するためのプラットフォーム
+- 半期（前期・後期）ごとに受講登録ができる
+- 登録した講義の一覧が閲覧可能
+- 事前に登録されたユーザーごとに受講登録ができる
+- ユーザーパスワードの変更が可能
 
-To learn more about Next.js, take a look at the following resources:
+### 機能要件
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. ユーザー認証
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   - ログイン
+   - パスワード変更
 
-## Deploy on Vercel
+1. 受講登録
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - 授業一覧表示
+   - 受講授業の選択・登録
+   - 受講授業の修正・削除
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. 授業情報の閲覧
+
+   - 受講登録した授業の一覧
+   - 授業詳細情報
