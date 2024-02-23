@@ -31,10 +31,11 @@ model User {
 model Course {
   id          String    @id @default(cuid())
   title       String
-  facultyId    Int
-  faculty      Faculty    @relation(fields: [facultyId], references: [id])
+  facultyId   Int
+  faculty     Faculty   @relation(fields: [facultyId], references: [id])
   professorId Int
   professor   Professor @relation(fields: [professorId], references: [id])
+  term        String // 本当はenum の 春学期　秋学期
   weekday     Int
   period      Int
   description String
