@@ -10,7 +10,41 @@
 ## 作成にかかった時間
 
 約 時間（[Wakatime](https://wakatime.com/@6349807e-05ff-4de4-a2db-b1681b3c76c6/projects/zkhjrzzqzx?start=2024-02-15&end=2024-02-21)参照）
-（エディターを開いていてもカウントされるため正確ではありません。→keyboard timeout15 分設定）
+
+## 始めるにあたって
+
+### dependency のインストール
+
+`npm i`
+
+### 環境変数設定
+
+`.env.local` を作成
+
+```bash
+touch .env.local
+```
+
+以下の内容を記入（Vercel の Storage タブからコピー）
+
+- POSTGRES_URL
+- POSTGRES_PRISMA_URL
+- POSTGRES_URL_NO_SSL
+- POSTGRES_URL_NON_POOLING
+- POSTGRES_USER
+- POSTGRES_HOST
+- POSTGRES_PASSWORD
+- POSTGRES_DATABASE
+
+### migration と seeding
+
+1. `npx prisma generate`で型生成
+1. `npm run db:push`でテーブル作成
+1. `npx prisma seed`でシードデータ挿入
+
+### prisma client の生成
+
+`npx prisma generate`を実行し、Prisma の型を生成する（ORM を使った開発時に必須）
 
 ## 課題詳細
 
