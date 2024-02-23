@@ -34,7 +34,7 @@ model Course {
   term        String // 本当はenum の 春学期　秋学期
   weekday     Int
   period      Int
-  creadit     Int
+  credit      Int
   subtitle    String
   description String
   goal        String
