@@ -1,5 +1,5 @@
 // https://vercel.com/docs/storage/vercel-postgres/using-an-orm#prisma
-generator client {
+datasource db {
   provider  = "postgresql"
   // Uses connection pooling
   url       = env("POSTGRES_PRISMA_URL")
@@ -8,9 +8,8 @@ generator client {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+generator client {
+  provider = "prisma-client-js"
 }
 
 model Professor {
@@ -32,21 +31,24 @@ model User {
 model Course {
   id          String    @id @default(cuid())
   title       String
-  schoolId    Int
-  school      School    @relation(fields: [schoolId], references: [id])
-  professorId Int
-  professor   Professor @relation(fields: [professorId], references: [id])
+  term        String // 本当はenum の 春学期　秋学期
   weekday     Int
   period      Int
+  credit      Int
+  subtitle    String
   description String
   goal        String
-  task        String
+  schedule    String
+  facultyId   Int
+  faculty     Faculty   @relation(fields: [facultyId], references: [id])
+  professorId Int
+  professor   Professor @relation(fields: [professorId], references: [id])
   users       User[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
 
-model School {
+model Faculty {
   id      Int      @id @default(autoincrement())
   name    String
   courses Course[]
