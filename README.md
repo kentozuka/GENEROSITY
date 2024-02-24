@@ -38,13 +38,13 @@ touch .env.local
 
 ### migration と seeding
 
-1. `npx prisma generate`で型生成
-1. `npm run db:push`でテーブル作成
-1. `npx prisma seed`でシードデータ挿入
+- `npx prisma generate`で型生成
+- `npm run db:migrate`でマイグレーション
+- `npx prisma seed`でシードデータ挿入
 
 ### prisma client の生成
 
-`npx prisma generate`を実行し、Prisma の型を生成する（ORM を使った開発時に必須）
+`npx prisma generate`を実行し、Prisma の型を生成
 
 ## 課題詳細
 

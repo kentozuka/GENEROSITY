@@ -10,19 +10,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:push": "./node_modules/.bin/dotenv -e .env.local -- npx prisma db push",
+    "db:push": "dotenv -e .env.local -- npx prisma db push",
+    "db:migrate": "dotenv -e .env.local -- npx prisma migrate dev --name init",
     "db:seed": "dotenv -e .env.local -- npx prisma db seed"
   },
   "dependencies": {
     "@prisma/client": "^5.10.1",
     "@vercel/postgres": "^0.7.2",
+    "bcrypt": "^5.1.1",
     "clsx": "^2.1.0",
     "next": "14.1.0",
+    "next-auth": "^4.24.6",
     "prisma": "^5.10.1",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.11.20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

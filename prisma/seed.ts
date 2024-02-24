@@ -4,6 +4,7 @@ const prisma = new PrismaClient()
 
 import professorData from './seeds/professors.json'
 import courseData from './seeds/courses.json'
+import { userData } from './userSeed'
 
 const days = ['日', '月', '火', '水', '木', '金', '土']
 
@@ -53,6 +54,10 @@ async function main() {
       professorId: Math.floor(Math.random() * count) + 1 // ランダムで挿入
     }))
   })
+
+  // user seed
+  const data = await userData()
+  await prisma.user.createMany({ data })
 }
 
 main()
