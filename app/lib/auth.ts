@@ -5,6 +5,9 @@ import { compare } from 'bcrypt'
 import db from '@/lib/db'
 
 export const authOptions = {
+  pages: {
+    signIn: '/login'
+  },
   session: {
     strategy: 'jwt'
   },
@@ -43,13 +46,15 @@ export const authOptions = {
     })
   ],
   callbacks: {
-    session: ({ session, token }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: token.id
+    session: ({ session, token }) => {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.id
+        }
       }
-    }),
+    },
     jwt: ({ token, user }) => {
       if (!user) return token
 

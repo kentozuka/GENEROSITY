@@ -1,7 +1,9 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
+import LoginRedirectButton from '@/components/atoms/LoginRedirectButton'
 import AccountDisplay from '@/components/molecures/AccountDisplay'
 import NavItem from '@/components/molecures/NavItem'
 import { IconType } from '@/components/atoms/Icon'
@@ -16,6 +18,7 @@ interface NavItemProps {
 
 export default function Navigation() {
   const pathname = usePathname()
+  const { data, status } = useSession()
 
   const navItems: NavItemProps[] = [
     {
@@ -57,7 +60,11 @@ export default function Navigation() {
         </div>
       </div>
 
-      <AccountDisplay />
+      {status === 'authenticated' ? (
+        <AccountDisplay id={1} name={data.user?.name || ''} />
+      ) : (
+        <LoginRedirectButton />
+      )}
     </aside>
   )
 }

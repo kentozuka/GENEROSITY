@@ -1,24 +1,47 @@
-'use client'
+import { signOut } from 'next-auth/react'
 
-import { useSession } from 'next-auth/react'
-import Avator from '../atoms/Avator'
-import Button from '../atoms/Button'
-import Icon from '../atoms/Icon'
+import { Button } from '@/components/ui/button'
+import Avator from '@/components/atoms/Avator'
+import Icon from '@/components/atoms/Icon'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
+import { useRouter } from 'next/navigation'
 
-export default function AccountDisplay() {
-  const { data, status } = useSession()
-  // if status is unauthenticated then show login button
+export default function AccountDisplay({
+  id,
+  name
+}: {
+  id: number
+  name: string
+}) {
+  const router = useRouter()
 
   return (
     <div className="border border-transparent flex px-4 py-5 rounded justify-between">
       <div className="flex items-center gap-4">
-        <Avator src="https://i.pravatar.cc/150?img=3" />
-        <p>user</p>
+        <Avator src={`https://i.pravatar.cc/150?img=${id}`} />
+        <p>{name}</p>
       </div>
 
-      <Button intent="clear" action={() => {}}>
-        <Icon type="dots" />
-      </Button>
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <Button variant="ghost">
+            <Icon type="dots" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem onClick={() => signOut()}>
+            ログアウト
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => router.push('/password')}>
+            パスワード変更
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   )
 }
