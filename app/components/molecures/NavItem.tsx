@@ -1,23 +1,27 @@
 import Link from 'next/link'
 import Icon, { IconType } from '../atoms/Icon'
+import clsx from 'clsx'
 
 export default function NavItem({
   href,
   icon,
-  text
+  text,
+  active
 }: {
   href: string
   icon: IconType
   text: string
+  active: boolean
 }) {
-  return (
-    <Link
-      href={href}
-      className="border border-transparent flex items-center gap-2 px-4 py-5 rounded hover:bg-generous-200 hover:border-generous-300"
-    >
-      <Icon type={icon} />
+  const sharedClass =
+    'border border-transparent flex items-center gap-2 px-4 py-5 rounded hover:bg-generous-200 hover:border-generous-300'
+  const activeClass = 'bg-generous-200 border-generous-300'
+  const linkClass = clsx(sharedClass, active && activeClass)
 
-      <p className="">{text}</p>
+  return (
+    <Link href={href} className={linkClass}>
+      <Icon type={icon} />
+      <p>{text}</p>
     </Link>
   )
 }
