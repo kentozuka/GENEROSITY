@@ -1,28 +1,65 @@
 'use client'
 
-import { useSession, signIn } from 'next-auth/react'
-import { useSearchParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { useState, FormEvent } from 'react'
+import { redirect, useRouter } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { toast } from 'sonner'
 
 export default function Passwrod() {
-  const searchParams = useSearchParams()
-  const { data: session } = useSession()
-
-  if (session) console.log('no need to login')
   const [loading, setLoading] = useState(false)
-  const error = searchParams.get('error')
-  const callbackUrl = searchParams.get('callbackUrl')
+  const [error, setError] = useState('')
+  const router = useRouter()
+
+  const { data: session, status } = useSession()
+  if (status !== 'loading' && !session) return redirect('/login')
+
+  const formRetry = async (error: string) => {
+    setError(error)
+    setLoading(false)
+    return
+  }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    setError('')
+    setLoading(true)
+
     const form = new FormData(e.currentTarget)
-    setLoading(true) // redirect automatically renew the page so no need to reset the loading state
-    // make api calls?
+    const currentPassword = form.get('current-password')
+    const newPassword = form.get('new-password-text-field')
+    const confirmPassword = form.get('confirm-password-text-field')
+
+    // local validation
+    if (newPassword !== confirmPassword)
+      return formRetry('新しいパスワードが一致しません。')
+
+    if (newPassword === currentPassword)
+      return formRetry('新しいパスワードが現在のパスワードと同じです。')
+
+    const result = await fetch('/api/auth/password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ currentPassword, newPassword })
+    })
+    const json = await result.json()
+
+    if (json.error) return formRetry(json.error)
+
+    toast('パスワードを変更しました。')
+    await new Promise((resolve) =>
+      setTimeout(() => {
+        setLoading(false)
+        router.push('/registered')
+        resolve('')
+      }, 3 * 1000)
+    )
   }
+
+  const focusHandler = () => setError('')
 
   return (
     <form className="w-full px-12 py-8 self-center" onSubmit={handleSubmit}>
@@ -42,6 +79,7 @@ export default function Passwrod() {
         autoComplete="current-password"
         type="password"
         placeholder="現在のパスワード"
+        onFocus={focusHandler}
       />
 
       <p className="pt-4 pb-2 text-generous-500 text-sm">新しいパスワード</p>
@@ -51,20 +89,18 @@ export default function Passwrod() {
           autoComplete="new-password"
           type="password"
           placeholder="パスワード"
+          onFocus={focusHandler}
         />
         <Input
           name="confirm-password-text-field"
           autoComplete="new-password"
           type="password"
           placeholder="パスワードの確認"
+          onFocus={focusHandler}
         />
       </div>
 
-      {error && (
-        <p className="text-red-500 text-xs pt-2">
-          現在のパスワードが間違っています
-        </p>
-      )}
+      {error !== '' && <p className="text-red-500 text-xs py-2">{error}</p>}
 
       <div className="flex pt-8">
         <Button
@@ -72,7 +108,7 @@ export default function Passwrod() {
           className="flex-grow bg-generous-600"
           disabled={loading}
         >
-          {loading ? '変更中...' : '変更'}
+          {loading ? '送信中...' : '変更'}
         </Button>
       </div>
     </form>

@@ -18,10 +18,12 @@ export default function AuthLayout({
         </p>
       </div>
 
-      <div className="bg-generous-600 col-span-7">
-        <Suspense>
-          <UnnecessaryTorusKnot />
-        </Suspense>
+      <div className="p-4 col-span-7">
+        <div className="bg-generous-600 rounded-lg h-full">
+          <Suspense>
+            <UnnecessaryTorusKnot />
+          </Suspense>
+        </div>
       </div>
     </main>
   )
