@@ -2,9 +2,9 @@ import { Noto_Sans_JP } from 'next/font/google'
 import type { Metadata } from 'next'
 import clsx from 'clsx'
 
-import './globals.css'
-import Navigation from './components/organism/Navigation'
-import { Providers } from './context/providers'
+import { Toaster } from '@/components/ui/sonner'
+import { Providers } from '@/context/providers'
+import '@/globals.css'
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -24,10 +24,9 @@ export default function RootLayout({
   return (
     <html lang="ja" className={clsx(notoSansJP.variable, 'font-sans')}>
       <body>
-        <Providers>
-          <Navigation />
-          <main>{children}</main>
-        </Providers>
+        <Providers>{children}</Providers>
+
+        <Toaster />
       </body>
     </html>
   )
