@@ -3,7 +3,7 @@
 import { signIn, useSession } from 'next-auth/react' // serverside auth does not work so ill opt for clientside
 import { FormEvent, useState } from 'react'
 
-import { useRouter, useSearchParams } from 'next/navigation'
+import { redirect, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -12,7 +12,6 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
   const searchParams = useSearchParams()
   const { data: session, status } = useSession()
-  const router = useRouter()
 
   const callbackUrl = searchParams.get('callbackUrl')
   const error = searchParams.get('error')
@@ -25,7 +24,7 @@ export default function Login() {
 
   if (session) {
     // TODO: think about why this is so slow + login flash
-    router.push(callbackUrl || '/registered')
+    redirect(callbackUrl || '/registered')
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
