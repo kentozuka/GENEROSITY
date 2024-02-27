@@ -6,7 +6,7 @@ import Term from '../atoms/Term'
 import ProfileDisplay from './ProfileDisplay'
 import TimeDisplay from './TimeDisplay'
 import { Button } from '../ui/button'
-import EnrollControlButton from './EnrollControlButton'
+import EnrollControlButton from '../organisms/EnrollControlButton'
 
 export default function CourseDetailContent({
   course
