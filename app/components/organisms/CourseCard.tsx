@@ -23,7 +23,7 @@ export default function CourseCard({ course }: { course: CompeleteCourse }) {
           <div>
             <Term text={course.term} />
           </div>
-          <CardTitle className="text-lg">{course.title}</CardTitle>
+          <CardTitle className="text-lg line-clamp-1">{course.title}</CardTitle>
           <CardDescription>{course.faculty.name}</CardDescription>
         </CardHeader>
 

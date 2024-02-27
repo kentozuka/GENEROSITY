@@ -11,19 +11,14 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 
-export default function AccountDisplay({
-  id,
-  name
-}: {
-  id: number
-  name: string
-}) {
+export default function AccountDisplay({ name }: { name: string }) {
   const router = useRouter()
+  const avatorUrl = `https://i.pravatar.cc/150?u=${name}`
 
   return (
     <div className="flex justify-between px-4 py-5 border border-transparent rounded">
       <div className="flex items-center gap-4">
-        <Avator src={`https://i.pravatar.cc/150?img=${id}`} />
+        <Avator src={avatorUrl} />
         <p>{name}</p>
       </div>
 

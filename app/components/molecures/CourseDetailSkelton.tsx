@@ -1,35 +1,31 @@
-import { CompeleteCourse } from '@/types'
 import Credit from '../atoms/Credit'
-import Icon from '../atoms/Icon'
+import MultiLine from '../atoms/MultiLineSkelton'
 import NonFunctionalTabs from '../atoms/NonFunctionalTabs'
 import Term from '../atoms/Term'
-import ProfileDisplay from '../molecures/ProfileDisplay'
-import TimeDisplay from '../molecures/TimeDisplay'
-import { Button } from '../ui/button'
-import EnrollControlButton from '../molecures/EnrollControlButton'
+import { Skeleton } from '../ui/skeleton'
+import ProfileDisplay from './ProfileDisplay'
+import TimeDisplay from './TimeDisplay'
 
-export default function CourseDetailContent({
-  course
-}: {
-  course: CompeleteCourse
-}) {
+export default function CourseDetailContent() {
   return (
     <div className="py-8">
-      <h1 className="text-xl">{course.title}</h1>
-      <p className="text-sm text-generous-500">{course.faculty.name}</p>
+      <h1 className="pb-2 text-xl">
+        <Skeleton className="h-8 max-w-sm" />
+      </h1>
+      <p className="text-sm text-generous-500">
+        <Skeleton className="h-4 w-[200px]" />
+      </p>
 
       <div className="flex gap-4 py-2">
-        <Credit count={course.credit} />
-        <Term text={course.term} />
-        <TimeDisplay dayIndex={course.weekday} period={course.period} />
+        <Credit />
+        <Term />
+        <TimeDisplay />
       </div>
-      <ProfileDisplay id={course.professor.id} name={course.professor.name} />
+      <ProfileDisplay />
 
       <div className="flex max-w-sm gap-2 py-6">
-        <EnrollControlButton courseId={course.id} />
-        <Button variant="secondary">
-          <Icon type="heart" />
-        </Button>
+        <Skeleton className="w-full h-10" />
+        <Skeleton className="h-10 w-14" />
       </div>
 
       <div className="max-w-lg">
@@ -39,21 +35,21 @@ export default function CourseDetailContent({
           <div className="pb-4">
             <h2 className="text-lg">副題</h2>
             <p className="py-2 whitespace-pre-wrap text-generous-600">
-              {course.subtitle || 'なし'}
+              <MultiLine />
             </p>
           </div>
 
           <div className="pb-4">
             <h2 className="text-lg">授業概要</h2>
             <p className="py-2 whitespace-pre-wrap text-generous-600">
-              {course.description}
+              <MultiLine />
             </p>
           </div>
 
           <div className="pb-4">
             <h2 className="text-lg">授業計画</h2>
             <p className="py-2 whitespace-pre-wrap text-generous-600">
-              {course.schedule}
+              <MultiLine />
             </p>
           </div>
         </div>

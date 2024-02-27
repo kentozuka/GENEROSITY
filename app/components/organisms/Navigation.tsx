@@ -1,70 +1,21 @@
-'use client'
+import Link from 'next/link'
 
-import { usePathname } from 'next/navigation'
-import { useSession } from 'next-auth/react'
-
-import LoginRedirectButton from '@/components/atoms/LoginRedirectButton'
-import AccountDisplay from '@/components/molecures/AccountDisplay'
-import NavItem from '@/components/molecures/NavItem'
-import { IconType } from '@/components/atoms/Icon'
+import StatusBasedAccountDisplay from '@/components/molecures/StatusBasedAccountDisplay'
+import ClientsideNavigationList from '@/components/organisms/ClientsideNavigationList'
 import Logo from '@/components/atoms/Logo'
 
-interface NavItemProps {
-  href: string
-  icon: IconType
-  text: string
-  active: boolean
-}
-
 export default function Navigation() {
-  const pathname = usePathname()
-  const { data, status } = useSession()
-
-  const navItems: NavItemProps[] = [
-    {
-      href: '/',
-      icon: 'search',
-      text: '授業検索',
-      active: ['/', '/result', '/detail'].includes(pathname)
-    },
-    {
-      href: '/registered',
-      icon: 'bookmark',
-      text: '登録済み授業',
-      active: pathname === '/registered'
-    },
-    {
-      href: '/',
-      icon: 'heart',
-      text: 'お気に入り授業',
-      active: false
-    }
-  ]
-
   return (
-    <aside className="col-span-1 sticky top-0 h-screen flex flex-col justify-between p-4 bg-generous-100">
+    <aside className="sticky top-0 flex flex-col justify-between h-screen col-span-1 p-4 bg-generous-100">
       <div>
-        <div className="px-4 pt-6 pb-20">
+        <Link href="/" className="block px-4 pt-6 pb-20">
           <Logo />
-        </div>
-        <div className="flex flex-col gap-2">
-          {navItems.map((item, index) => (
-            <NavItem
-              key={index}
-              href={item.href}
-              icon={item.icon}
-              text={item.text}
-              active={item.active}
-            />
-          ))}
-        </div>
+        </Link>
+
+        <ClientsideNavigationList />
       </div>
 
-      {status === 'authenticated' ? (
-        <AccountDisplay id={1} name={data.user?.name || ''} />
-      ) : (
-        <LoginRedirectButton />
-      )}
+      <StatusBasedAccountDisplay />
     </aside>
   )
 }
