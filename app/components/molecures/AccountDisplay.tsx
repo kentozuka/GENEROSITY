@@ -21,14 +21,14 @@ export default function AccountDisplay({
   const router = useRouter()
 
   return (
-    <div className="border border-transparent flex px-4 py-5 rounded justify-between">
+    <div className="flex justify-between px-4 py-5 border border-transparent rounded">
       <div className="flex items-center gap-4">
         <Avator src={`https://i.pravatar.cc/150?img=${id}`} />
         <p>{name}</p>
       </div>
 
       <DropdownMenu>
-        <DropdownMenuTrigger>
+        <DropdownMenuTrigger asChild>
           <Button variant="ghost">
             <Icon type="dots" />
           </Button>
