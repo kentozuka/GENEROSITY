@@ -1,3 +1,5 @@
+'use client'
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,12 +13,19 @@ import {
 } from '@/components/ui/alert-dialog'
 import { Button } from '../ui/button'
 
-export default function Unenrollconfirmation() {
+export default function Unenrollconfirmation({
+  className
+}: {
+  className?: string
+}) {
   return (
     <AlertDialog>
-      <AlertDialogTrigger>
-        <Button variant="secondary">登録を取り消す</Button>
+      <AlertDialogTrigger asChild>
+        <Button variant="secondary" className={className}>
+          登録を取り消す
+        </Button>
       </AlertDialogTrigger>
+
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>

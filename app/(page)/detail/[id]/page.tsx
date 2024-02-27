@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import NonFunctionalTabs from '@/components/atoms/NonFunctionalTabs'
 import Unenrollconfirmation from '@/components/organisms/UnenrollConfirmation'
 
-export default function Detail() {
+export default function Detail({ params: { id } }: { params: { id: string } }) {
   return (
     <section className="">
       <Button variant="secondary">戻る</Button>
@@ -17,18 +17,19 @@ export default function Detail() {
       <div className="py-8">
         <h1 className="text-xl">Seminar on Communication 07</h1>
         <p className="text-generous-500 text-sm">国際教養学部</p>
-        <ProfileDisplay src="" alt="" name="近藤　眞理子" />
 
-        <div className="flex gap-4 pt-2">
+        <div className="flex gap-4 py-2">
           <Credit count={2} />
           <Badge variant="outline" className="font-normal">
             春学期
           </Badge>
           <TimeDisplay dayIndex={2} period={2} />
         </div>
+        <ProfileDisplay src="" alt="" name="近藤　眞理子" />
 
         <div className="py-6 flex gap-2 max-w-sm">
           <Button className="flex-grow">登録申請</Button>
+          <Unenrollconfirmation />
           <Button variant="secondary">
             <Icon type="heart" />
           </Button>
@@ -60,8 +61,6 @@ export default function Detail() {
             </div>
           </div>
         </div>
-
-        <Unenrollconfirmation />
       </div>
     </section>
   )

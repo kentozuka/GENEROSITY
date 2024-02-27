@@ -12,7 +12,7 @@ const daysData = [
 
 export default function Weekday({ dayIndex }: { dayIndex?: number }) {
   const dayData = daysData[dayIndex || 0]
-  const sharedStyle = 'block leading-4 rounded-sm text-xs p-1'
+  const sharedStyle = 'block leading-4 rounded-sm text-xs py-0.5 px-1'
   const emptyStyle = 'bg-gray-200 animate-pulse'
 
   // out of boundary, full-width space to keep the layout
