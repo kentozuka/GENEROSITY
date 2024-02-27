@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import Icon, { IconType } from '../atoms/Icon'
 import clsx from 'clsx'
+
+import Icon, { IconType } from '@/components/atoms/Icon'
 
 export default function NavItem({
   href,

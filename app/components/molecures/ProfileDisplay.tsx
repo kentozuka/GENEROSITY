@@ -1,4 +1,4 @@
-import Avator from '../atoms/Avator'
+import Avator from '@/components/atoms/Avator'
 
 export default function ProfileDisplay({
   name,

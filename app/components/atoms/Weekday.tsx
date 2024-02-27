@@ -1,5 +1,7 @@
 import clsx from 'clsx'
 
+import { Skeleton } from '@/components/ui/skeleton'
+
 const daysData = [
   { day: '日', color: 'bg-red-200' },
   { day: '月', color: 'bg-indigo-200' },
@@ -17,7 +19,7 @@ export default function Weekday({ dayIndex }: { dayIndex?: number }) {
 
   // out of boundary, full-width space to keep the layout
   if (dayData === undefined)
-    return <span className={clsx(sharedStyle, emptyStyle)}>　</span>
+    return <Skeleton className={clsx(sharedStyle, emptyStyle, 'w-3')} />
 
   return <span className={clsx(sharedStyle, dayData.color)}>{dayData.day}</span>
 }

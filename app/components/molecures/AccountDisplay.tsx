@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation'
 import { signOut } from 'next-auth/react'
 
 import { Button } from '@/components/ui/button'
@@ -9,7 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { useRouter } from 'next/navigation'
 
 export default function AccountDisplay({
   id,

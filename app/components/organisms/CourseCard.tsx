@@ -1,22 +1,19 @@
 'use client'
 
+import { Course } from '@prisma/client'
 import Link from 'next/link'
-import Avator from '../atoms/Avator'
-import Button from '../atoms/Button'
-import Credit from '../atoms/Credit'
-import Weekday from '../atoms/Weekday'
-import ProfileDisplay from '../molecures/ProfileDisplay'
-import TimeDisplay from '../molecures/TimeDisplay'
-import { Badge } from '../ui/badge'
+
+import ProfileDisplay from '@/components/molecures/ProfileDisplay'
+import TimeDisplay from '@/components/molecures/TimeDisplay'
+import { Badge } from '@/components/ui/badge'
+import Credit from '@/components/atoms/Credit'
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
-  CardContent,
-  CardFooter
-} from '../ui/card'
-import { Course } from '@prisma/client'
+  CardContent
+} from '@/components/ui/card'
 
 export default function CourseCard({ course }: { course: Course }) {
   return (
@@ -24,7 +21,7 @@ export default function CourseCard({ course }: { course: Course }) {
       <Card>
         <CardHeader>
           <div>
-            <Badge variant="outline" className="font-normal text-xs">
+            <Badge variant="outline" className="text-xs font-normal">
               春学期
             </Badge>
           </div>
@@ -39,7 +36,7 @@ export default function CourseCard({ course }: { course: Course }) {
             <Credit count={2} />
           </div>
 
-          <p className="truncate whitespace-pre-wrap py-2">
+          <p className="py-2 truncate whitespace-pre-wrap">
             This course is designed to prepare and assist students in conducting
             resea
           </p>

@@ -1,11 +1,9 @@
 import Link from 'next/link'
-import Avator from '../atoms/Avator'
-import Credit from '../atoms/Credit'
-import Term from '../atoms/Term'
-import Weekday from '../atoms/Weekday'
-import ProfileDisplay from '../molecures/ProfileDisplay'
-import TimeDisplay from '../molecures/TimeDisplay'
-import { Button } from '../ui/button'
+
+import Unenrollconfirmation from '@/components/organisms/UnenrollConfirmation'
+import ProfileDisplay from '@/components/molecures/ProfileDisplay'
+import TimeDisplay from '@/components/molecures/TimeDisplay'
+import Credit from '@/components/atoms/Credit'
 import {
   Card,
   CardHeader,
@@ -13,8 +11,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter
-} from '../ui/card'
-import Unenrollconfirmation from './UnenrollConfirmation'
+} from '@/components/ui/card'
 
 export default function CourseCard() {
   return (
