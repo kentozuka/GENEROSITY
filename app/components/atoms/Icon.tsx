@@ -1,3 +1,15 @@
+import {
+  X,
+  Search,
+  Bookmark,
+  Heart,
+  MoreHorizontal,
+  ChevronLeft,
+  Menu,
+  Flame,
+  AlarmClock
+} from 'lucide-react'
+
 export type IconType =
   | 'search'
   | 'bookmark'
@@ -8,191 +20,52 @@ export type IconType =
   | 'chevron-left'
   | 'menu'
   | 'x'
+  | 'flame'
+  | 'alarmclock'
 
-export default function Icon({ type }: { type: IconType }) {
+const switcher = (type: IconType) => {
   switch (type) {
     case 'search':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M21 21L15 15M3 10C3 10.9193 3.18106 11.8295 3.53284 12.6788C3.88463 13.5281 4.40024 14.2997 5.05025 14.9497C5.70026 15.5998 6.47194 16.1154 7.32122 16.4672C8.1705 16.8189 9.08075 17 10 17C10.9193 17 11.8295 16.8189 12.6788 16.4672C13.5281 16.1154 14.2997 15.5998 14.9497 14.9497C15.5998 14.2997 16.1154 13.5281 16.4672 12.6788C16.8189 11.8295 17 10.9193 17 10C17 9.08075 16.8189 8.1705 16.4672 7.32122C16.1154 6.47194 15.5998 5.70026 14.9497 5.05025C14.2997 4.40024 13.5281 3.88463 12.6788 3.53284C11.8295 3.18106 10.9193 3 10 3C9.08075 3 8.1705 3.18106 7.32122 3.53284C6.47194 3.88463 5.70026 4.40024 5.05025 5.05025C4.40024 5.70026 3.88463 6.47194 3.53284 7.32122C3.18106 8.1705 3 9.08075 3 10Z"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
+      return Search
+
     case 'bookmark':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11 3H16C16.7956 3 17.5587 3.31607 18.1213 3.87868C18.6839 4.44129 19 5.20435 19 6V17M15 10V21L10 18L5 21V10C5 9.20435 5.31607 8.44129 5.87868 7.87868C6.44129 7.31607 7.20435 7 8 7H12C12.7956 7 13.5587 7.31607 14.1213 7.87868C14.6839 8.44129 15 9.20435 15 10Z"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
+      return Bookmark
 
     case 'heart':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M19.5 12.5721L12 20.0001L4.5 12.5721C4.0053 12.0907 3.61564 11.5121 3.35554 10.8727C3.09545 10.2333 2.97056 9.54701 2.98873 8.85699C3.00691 8.16697 3.16776 7.48819 3.46115 6.86339C3.75455 6.23859 4.17413 5.68131 4.69348 5.22663C5.21283 4.77196 5.8207 4.42974 6.47881 4.22154C7.13691 4.01333 7.831 3.94364 8.51736 4.01686C9.20373 4.09007 9.8675 4.30461 10.4669 4.64696C11.0662 4.98931 11.5882 5.45205 12 6.00605C12.4135 5.45608 12.9361 4.99738 13.5351 4.65866C14.1341 4.31994 14.7965 4.1085 15.4809 4.03757C16.1654 3.96665 16.8571 4.03775 17.5128 4.24645C18.1685 4.45514 18.774 4.79693 19.2915 5.25042C19.8091 5.70391 20.2274 6.25934 20.5204 6.88195C20.8134 7.50456 20.9747 8.18094 20.9943 8.86876C21.0139 9.55659 20.8913 10.241 20.6341 10.8793C20.377 11.5176 19.9909 12.0959 19.5 12.5781"
-            stroke="black"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
-
-    case 'account':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6.16803 18.849C6.41554 18.0252 6.922 17.3032 7.61228 16.79C8.30255 16.2768 9.13988 15.9997 10 16H14C14.8613 15.9997 15.6996 16.2774 16.3904 16.7918C17.0812 17.3062 17.5875 18.0298 17.834 18.855M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C10.8181 3 9.64778 3.23279 8.55585 3.68508C7.46392 4.13738 6.47177 4.80031 5.63604 5.63604C4.80031 6.47177 4.13738 7.46392 3.68508 8.55585C3.23279 9.64778 3 10.8181 3 12ZM9 10C9 10.7956 9.31607 11.5587 9.87868 12.1213C10.4413 12.6839 11.2044 13 12 13C12.7956 13 13.5587 12.6839 14.1213 12.1213C14.6839 11.5587 15 10.7956 15 10C15 9.20435 14.6839 8.44129 14.1213 7.87868C13.5587 7.31607 12.7956 7 12 7C11.2044 7 10.4413 7.31607 9.87868 7.87868C9.31607 8.44129 9 9.20435 9 10Z"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
+      return Heart
 
     case 'dots':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13C5.26522 13 5.51957 12.8946 5.70711 12.7071C5.89464 12.5196 6 12.2652 6 12C6 11.7348 5.89464 11.4804 5.70711 11.2929C5.51957 11.1054 5.26522 11 5 11C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12Z"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M11 12C11 12.2652 11.1054 12.5196 11.2929 12.7071C11.4804 12.8946 11.7348 13 12 13C12.2652 13 12.5196 12.8946 12.7071 12.7071C12.8946 12.5196 13 12.2652 13 12C13 11.7348 12.8946 11.4804 12.7071 11.2929C12.5196 11.1054 12.2652 11 12 11C11.7348 11 11.4804 11.1054 11.2929 11.2929C11.1054 11.4804 11 11.7348 11 12Z"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M18 12C18 12.2652 18.1054 12.5196 18.2929 12.7071C18.4804 12.8946 18.7348 13 19 13C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11C18.7348 11 18.4804 11.1054 18.2929 11.2929C18.1054 11.4804 18 11.7348 18 12Z"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
-
-    case 'schedule':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11.795 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V7C3 6.46957 3.21071 5.96086 3.58579 5.58579C3.96086 5.21071 4.46957 5 5 5H17C17.5304 5 18.0391 5.21071 18.4142 5.58579C18.7893 5.96086 19 6.46957 19 7V11H3M18 14V18H22M18 14C19.0609 14 20.0783 14.4214 20.8284 15.1716C21.5786 15.9217 22 16.9391 22 18M18 14C16.9391 14 15.9217 14.4214 15.1716 15.1716C14.4214 15.9217 14 16.9391 14 18C14 19.0609 14.4214 20.0783 15.1716 20.8284C15.9217 21.5786 16.9391 22 18 22C19.0609 22 20.0783 21.5786 20.8284 20.8284C21.5786 20.0783 22 19.0609 22 18M15 3V7M7 3V7"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
+      return MoreHorizontal
 
     case 'chevron-left':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M15 6L9 12L15 18"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
+      return ChevronLeft
 
     case 'menu':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4 6H20M7 12H20M10 18H20"
-            stroke="black"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
+      return Menu
 
     case 'x':
-      return (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="stroke-current"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18 6L6 18M6 6L18 18"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
+      return X
+
+    case 'flame':
+      return Flame
+
+    case 'alarmclock':
+      return AlarmClock
+
+    default:
+      return X
   }
+}
+
+export default function Icon({ type }: { type: IconType }) {
+  const IconComponent = switcher(type)
+
+  return (
+    <IconComponent size={24} strokeWidth="1.5" className="stroke-current" />
+  )
+  // return IconComponent({
+  //   size: 24,
+  //   strokeWidth: '1.5',
+  //   className: 'stroke-current'
+  // })
 }
