@@ -1,6 +1,6 @@
 'use client'
 
-import CourseCard from '@/components/organisms/CourseCard'
+import CourseCard from '@/components/molecures/CourseCard'
 import { Button } from '@/components/ui/button'
 import { CompeleteCourse } from '@/types'
 import { useEffect, useState } from 'react'

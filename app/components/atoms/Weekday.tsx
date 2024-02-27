@@ -16,7 +16,6 @@ const LocalSkeleton = () => <Skeleton className="w-6 h-6" />
 
 export default function Weekday({ dayIndex }: { dayIndex?: number }) {
   const sharedStyle = 'block leading-4 rounded-sm text-xs py-0.5 px-1'
-  const emptyStyle = 'bg-gray-200 animate-pulse'
 
   if (dayIndex === undefined) return <LocalSkeleton />
 

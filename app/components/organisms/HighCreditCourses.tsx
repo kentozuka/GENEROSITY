@@ -1,5 +1,5 @@
 import { getHighCreditCourses } from '@/actions/getCourseSuggestions'
-import CourseHighlight from './CourseHighlight'
+import CourseHighlight from '../molecures/CourseHighlight'
 
 export default async function HighCreditCourses() {
   const courses = await getHighCreditCourses()

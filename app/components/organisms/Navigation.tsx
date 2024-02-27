@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import StatusBasedAccountDisplay from '@/components/molecures/StatusBasedAccountDisplay'
+import StatusBasedAccountDisplay from '@/components/organisms/StatusBasedAccountDisplay'
 import ClientsideNavigationList from '@/components/organisms/ClientsideNavigationList'
 import Logo from '@/components/atoms/Logo'
 

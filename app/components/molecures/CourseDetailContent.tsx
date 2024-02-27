@@ -3,10 +3,10 @@ import Credit from '../atoms/Credit'
 import Icon from '../atoms/Icon'
 import NonFunctionalTabs from '../atoms/NonFunctionalTabs'
 import Term from '../atoms/Term'
-import ProfileDisplay from '../molecures/ProfileDisplay'
-import TimeDisplay from '../molecures/TimeDisplay'
+import ProfileDisplay from './ProfileDisplay'
+import TimeDisplay from './TimeDisplay'
 import { Button } from '../ui/button'
-import EnrollControlButton from '../molecures/EnrollControlButton'
+import EnrollControlButton from './EnrollControlButton'
 
 export default function CourseDetailContent({
   course

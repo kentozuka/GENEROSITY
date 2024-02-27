@@ -3,7 +3,7 @@
 import { useSession } from 'next-auth/react'
 
 import LoginRedirectButton from '@/components/atoms/LoginRedirectButton'
-import AccountDisplay from '@/components/molecures/AccountDisplay'
+import AccountDisplay from '@/components/organisms/AccountDisplay'
 import { Skeleton } from '@/components/ui/skeleton'
 
 export default function StatusBasedAccountDisplay() {

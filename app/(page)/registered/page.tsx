@@ -1,5 +1,5 @@
 import { getUserCourses } from '@/actions/getUserCourses'
-import CourseActionCard from '@/components/organisms/CourseActionCard'
+import CourseActionCard from '@/components/molecures/CourseActionCard'
 import { CompeleteCourse } from '@/types'
 
 export default async function Registered() {

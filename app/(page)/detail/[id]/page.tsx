@@ -1,5 +1,5 @@
 import CourseDetailSkelton from '@/components/molecures/CourseDetailSkelton'
-import CourseDetailContent from '@/components/organisms/CourseDetailContent'
+import CourseDetailContent from '@/components/molecures/CourseDetailContent'
 import db from '@/lib/db'
 import { Suspense } from 'react'
 

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import Unenrollconfirmation from '@/components/organisms/UnenrollConfirmation'
+import Unenrollconfirmation from '@/components/molecures/UnenrollConfirmation'
 import ProfileDisplay from '@/components/molecures/ProfileDisplay'
 import TimeDisplay from '@/components/molecures/TimeDisplay'
 import Credit from '@/components/atoms/Credit'

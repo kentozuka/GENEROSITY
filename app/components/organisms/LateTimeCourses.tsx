@@ -1,5 +1,5 @@
 import { getLateTimeCourses } from '@/actions/getCourseSuggestions'
-import CourseHighlight from './CourseHighlight'
+import CourseHighlight from '../molecures/CourseHighlight'
 
 export default async function LateTimeCourses() {
   const courses = await getLateTimeCourses()

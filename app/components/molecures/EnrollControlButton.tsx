@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-import Unenrollconfirmation from '../organisms/UnenrollConfirmation'
+import Unenrollconfirmation from './UnenrollConfirmation'
 import { Button } from '../ui/button'
 import { Skeleton } from '../ui/skeleton'
 
