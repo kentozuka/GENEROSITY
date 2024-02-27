@@ -1,53 +1,33 @@
-import { getServerSession } from 'next-auth'
 import { NextResponse } from 'next/server'
 import { compare, hash } from 'bcrypt'
 
-import { authOptions } from '@/lib/auth'
 import db from '@/lib/db'
+import {
+  BAD_REQUEST,
+  badRequest,
+  lackOfRequiredFields,
+  userNotFound
+} from '@/api/lib/response'
 
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions)
-  if (!session) {
-    return NextResponse.json({
-      error: 'unauthenticated',
-      status: 401
-    })
-  }
-
-  const email = session.user?.email
-  if (!email) {
-    return NextResponse.json({
-      error: 'unauthenticated',
-      status: 401
-    })
-  }
-
-  const { currentPassword, newPassword } = await req.json()
-  if (!currentPassword || !newPassword) {
-    return NextResponse.json({
-      error: 'lacking required fields',
-      status: 400
-    })
-  }
-
-  const user = await db.user.findUnique({
-    where: { email }
-  })
+  const user = await db.user.current()
 
   if (user === null) {
-    return NextResponse.json({
-      error: 'user not found',
-      status: 404
-    })
+    return NextResponse.json(userNotFound, BAD_REQUEST)
+  }
+
+  const { currentPassword, newPassword } = await req.json().catch(() => null)
+  if (!currentPassword || !newPassword) {
+    return NextResponse.json(lackOfRequiredFields, BAD_REQUEST)
   }
 
   // validate current password
   const isValidPassword = await compare(currentPassword, user.password)
   if (!isValidPassword) {
-    return NextResponse.json({
-      error: '現在のパスワードが間違っています。',
-      status: 400
-    })
+    return NextResponse.json(
+      badRequest('現在のパスワードが間違っています。'),
+      BAD_REQUEST
+    )
   }
 
   const saltRounds = 12
@@ -55,7 +35,7 @@ export async function POST(req: Request) {
 
   // update password
   await db.user.update({
-    where: { email },
+    where: { email: user.email },
     data: {
       password: hashedPassword
     }
@@ -69,10 +49,12 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   // disable this endpoint in production
   if (process.env.NODE_ENV === 'production') {
-    return NextResponse.json({
-      error: 'not found',
-      status: 404
-    })
+    return NextResponse.json(
+      {
+        error: 'not found'
+      },
+      { status: 404 }
+    )
   }
 
   const { searchParams } = new URL(req.url)
