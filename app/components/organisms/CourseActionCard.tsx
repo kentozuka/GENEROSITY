@@ -4,6 +4,7 @@ import Unenrollconfirmation from '@/components/organisms/UnenrollConfirmation'
 import ProfileDisplay from '@/components/molecures/ProfileDisplay'
 import TimeDisplay from '@/components/molecures/TimeDisplay'
 import Credit from '@/components/atoms/Credit'
+import { CompeleteCourse } from '@/types'
 import {
   Card,
   CardHeader,
@@ -13,23 +14,23 @@ import {
   CardFooter
 } from '@/components/ui/card'
 
-export default function CourseCard() {
+export default function CourseCard({ course }: { course: CompeleteCourse }) {
   return (
     <Card>
       <CardHeader>
-        <Link href="/detail/seminar">
-          <CardTitle className="text-lg">Seminar on Communication 07</CardTitle>
+        <Link href={`/detail/${course.id}`}>
+          <CardTitle className="text-lg">{course.title}</CardTitle>
         </Link>
-        <CardDescription>国際教養学部</CardDescription>
+        <CardDescription>{course.faculty.name}</CardDescription>
       </CardHeader>
       <CardContent className="pb-4">
         <div className="flex justify-between pb-2">
           <ProfileDisplay
-            name="近藤眞理子"
-            src="https://i.pravatar.cc/150?img=3"
+            id={course.professor.id}
+            name={course.professor.name}
           />
-          <TimeDisplay dayIndex={2} period={2} />
-          <Credit count={2} />
+          <TimeDisplay dayIndex={course.weekday} period={course.period} />
+          <Credit count={course.credit} />
         </div>
       </CardContent>
       <CardFooter className="justify-center grow">

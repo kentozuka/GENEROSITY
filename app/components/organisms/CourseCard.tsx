@@ -1,12 +1,12 @@
 'use client'
 
-import { Course } from '@prisma/client'
 import Link from 'next/link'
 
 import ProfileDisplay from '@/components/molecures/ProfileDisplay'
 import TimeDisplay from '@/components/molecures/TimeDisplay'
-import { Badge } from '@/components/ui/badge'
 import Credit from '@/components/atoms/Credit'
+import Term from '@/components/atoms/Term'
+import { CompeleteCourse } from '@/types'
 import {
   Card,
   CardHeader,
@@ -15,34 +15,31 @@ import {
   CardContent
 } from '@/components/ui/card'
 
-export default function CourseCard({ course }: { course: Course }) {
+export default function CourseCard({ course }: { course: CompeleteCourse }) {
   return (
-    <Link href="/detail/course-ud">
+    <Link href={`/detail/${course.id}`} className="cursor-pointer">
       <Card>
         <CardHeader>
           <div>
-            <Badge variant="outline" className="text-xs font-normal">
-              春学期
-            </Badge>
+            <Term text={course.term} />
           </div>
-          <CardTitle className="text-lg">Seminar on Culture 08</CardTitle>
-          <CardDescription>国際教養学部</CardDescription>
+          <CardTitle className="text-lg">{course.title}</CardTitle>
+          <CardDescription>{course.faculty.name}</CardDescription>
         </CardHeader>
 
         <CardContent>
           <div className="flex justify-between">
-            <TimeDisplay dayIndex={2} period={2} />
+            <TimeDisplay dayIndex={course.weekday} period={course.period} />
 
-            <Credit count={2} />
+            <Credit count={course.credit} />
           </div>
 
-          <p className="py-2 truncate whitespace-pre-wrap">
-            This course is designed to prepare and assist students in conducting
-            resea
-          </p>
+          <div className="py-2">
+            <p className="line-clamp-3">{course.description}</p>
+          </div>
           <ProfileDisplay
-            name="近藤眞理子"
-            src="https://i.pravatar.cc/150?img=3"
+            id={course.professor.id}
+            name={course.professor.name}
           />
         </CardContent>
       </Card>
