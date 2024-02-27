@@ -1,10 +1,12 @@
-import db from '@/lib/db'
 import { getServerSession } from 'next-auth'
 import { NextResponse } from 'next/server'
 import { compare, hash } from 'bcrypt'
 
+import { authOptions } from '@/lib/auth'
+import db from '@/lib/db'
+
 export async function POST(req: Request) {
-  const session = await getServerSession()
+  const session = await getServerSession(authOptions)
   if (!session) {
     return NextResponse.json({
       error: 'unauthenticated',
