@@ -6,7 +6,10 @@ export default function NonFunctionalTabs() {
       {['基本情報', '授業計画', '評価方法', 'レビュー'].map((tab, index) => {
         const firstItem = index === 0
         const firstItemStyle = 'border-b border-generous-600'
-        const tabStyle = clsx('px-4 pb-2 pt-3', firstItem && firstItemStyle)
+        const tabStyle = clsx(
+          'px-4 pb-2 pt-3 cursor-not-allowed',
+          firstItem && firstItemStyle
+        )
 
         return (
           <div key={index} className={tabStyle}>
