@@ -28,7 +28,7 @@ export default function ClientsideNavigationList() {
       active: pathname === '/registered'
     },
     {
-      href: '/',
+      href: '/favorite',
       icon: 'heart',
       text: 'お気に入り授業',
       active: false
