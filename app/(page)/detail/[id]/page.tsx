@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 
 import CourseDetailDisplay from '@/components/organisms/CourseDetailDisplay'
 import ClientGoBackButton from '@/components/organisms/ClientGoBackButton'
-import CourseDetailSkelton from '@/components/atoms/CourseDetailSkelton'
+import CourseDetailSkeleton from '@/components/atoms/CourseDetailSkeleton'
 
 export default async function Detail({
   params: { id }
@@ -12,7 +12,7 @@ export default async function Detail({
   return (
     <>
       <ClientGoBackButton />
-      <Suspense fallback={<CourseDetailSkelton />}>
+      <Suspense fallback={<CourseDetailSkeleton />}>
         <CourseDetailDisplay id={id} />
       </Suspense>
     </>

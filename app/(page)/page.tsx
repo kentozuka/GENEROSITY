@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { CourseHighlightSkelton } from '@/components/atoms/CourseHighlightSkelton'
+import CourseHighlightSkeleton from '@/components/atoms/CourseHighlightSkeleton'
 import HighCreditCourses from '@/components/organisms/HighCreditCourses'
 import LateTimeCourses from '@/components/organisms/LateTimeCourses'
 import SearchForm from '@/components/organisms/SearchForm'
@@ -10,10 +10,10 @@ export default async function Home() {
     <>
       <SearchForm />
 
-      <Suspense fallback={<CourseHighlightSkelton />}>
+      <Suspense fallback={<CourseHighlightSkeleton />}>
         <HighCreditCourses />
       </Suspense>
-      <Suspense fallback={<CourseHighlightSkelton />}>
+      <Suspense fallback={<CourseHighlightSkeleton />}>
         <LateTimeCourses />
       </Suspense>
     </>

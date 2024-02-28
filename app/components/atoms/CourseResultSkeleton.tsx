@@ -1,6 +1,6 @@
-import { Skeleton } from '../ui/skeleton'
+import { Skeleton } from '@/components/ui/skeleton'
 
-export default function CourseResultSkelton() {
+export default function CourseResultSkeleton() {
   return (
     <div className="py-6">
       <div className="flex items-center gap-2 pb-4">

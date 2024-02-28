@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
 
-import CourseResultSkelton from '@/components/atoms/CourseResultSkelton'
+import CourseResultSkeleton from '@/components/atoms/CourseResultSkeleton'
 import CourseResult from '@/components/organisms/CourseResult'
 import { buttonVariants } from '@/components/ui/button'
 
@@ -19,7 +19,7 @@ export default async function Result({
         戻る
       </Link>
 
-      <Suspense fallback={<CourseResultSkelton />}>
+      <Suspense fallback={<CourseResultSkeleton />}>
         <CourseResult take={take} searchParams={searchParams} />
       </Suspense>
     </>

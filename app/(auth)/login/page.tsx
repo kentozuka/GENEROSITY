@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { Suspense } from 'react'
 
-import LoginFormSkelton from '@/components/atoms/LoginFormSkelton'
+import LoginFormSkeleton from '@/components/atoms/LoginFormSkeleton'
 import LoginForm from '@/components/organisms/LoginForm'
 
 export default async function Login({
@@ -17,7 +17,7 @@ export default async function Login({
   }
 
   return (
-    <Suspense fallback={<LoginFormSkelton />}>
+    <Suspense fallback={<LoginFormSkeleton />}>
       <LoginForm error={sp.error} callbackUrl={sp.callbackUrl} />
     </Suspense>
   )

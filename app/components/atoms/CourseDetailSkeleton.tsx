@@ -1,10 +1,10 @@
-import Credit from './Credit'
-import MultiLine from './MultiLineSkelton'
-import NonFunctionalTabs from './NonFunctionalTabs'
-import Term from './Term'
-import { Skeleton } from '../ui/skeleton'
-import ProfileDisplay from '../molecures/ProfileDisplay'
-import TimeDisplay from '../molecures/TimeDisplay'
+import NonFunctionalTabs from '@/components/atoms/NonFunctionalTabs'
+import ProfileDisplay from '@/components/molecures/ProfileDisplay'
+import TimeDisplay from '@/components/molecures/TimeDisplay'
+import MultiLine from '@/components/atoms/MultiLineSkeleton'
+import { Skeleton } from '@/components/ui/skeleton'
+import Credit from '@/components/atoms/Credit'
+import Term from '@/components/atoms/Term'
 
 export default function CourseDetailContent() {
   return (

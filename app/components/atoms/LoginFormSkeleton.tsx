@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton'
 
-export default function LoginFormSkelton() {
+export default function LoginFormSkeleton() {
   return (
     <div className="self-center w-full p-4 md:px-20 md:py-8">
       <div className="flex flex-col gap-2 pb-8">

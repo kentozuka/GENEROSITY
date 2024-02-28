@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { Suspense } from 'react'
 
-import LoginFormSkelton from '@/components/atoms/LoginFormSkelton'
+import LoginFormSkeleton from '@/components/atoms/LoginFormSkeleton'
 import PasswordForm from '@/components/organisms/PasswordForm'
 
 export default async function Passwrod() {
@@ -12,7 +12,7 @@ export default async function Passwrod() {
   }
 
   return (
-    <Suspense fallback={<LoginFormSkelton />}>
+    <Suspense fallback={<LoginFormSkeleton />}>
       <PasswordForm />
     </Suspense>
   )

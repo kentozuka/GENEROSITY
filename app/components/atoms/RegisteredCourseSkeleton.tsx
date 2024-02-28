@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton'
 
-export default function RegisteredCourseSkelton() {
+export default function RegisteredCourseSkeleton() {
   return (
     <div className="pb-8">
       <div className="flex items-center gap-2 pt-2 pb-4">

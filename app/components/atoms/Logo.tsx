@@ -1,4 +1,4 @@
-export default function Logo() {
+export default function Logo({ width = 128 }: { width?: number }) {
   return (
     <svg
       version="1.1"
@@ -6,7 +6,7 @@ export default function Logo() {
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      width={120}
+      width={width}
       viewBox="0 0 1200 574"
     >
       <g id="レイヤー_2_1_">

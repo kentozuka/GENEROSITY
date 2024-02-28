@@ -1,9 +1,9 @@
 'use client'
 
 import { usePasswordForm } from '@/hooks/usePasswordForm'
+import InputError from '@/components/atoms/InputError'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import InputError from '../atoms/InputError'
 
 // Following Apple's naming convention for autocomplete attribute
 // https://developer.apple.com/documentation/security/password_autofill/enabling_password_autofill_on_an_html_input_element

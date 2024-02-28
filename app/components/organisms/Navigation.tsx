@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 import StatusBasedAccountDisplay from '@/components/organisms/StatusBasedAccountDisplay'
 import ClientsideNavigationList from '@/components/organisms/ClientsideNavigationList'
+import MobileNavigationItems from '@/components/organisms/MobileNavigationItems'
 import Logo from '@/components/atoms/Logo'
-import MobileNavigationItems from './MobileNavigationItems'
 
 export default function Navigation() {
   return (
