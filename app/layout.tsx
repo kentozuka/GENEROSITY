@@ -17,17 +17,21 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children
+  children,
+  modal
 }: Readonly<{
   children: React.ReactNode
+  modal: React.ReactNode
 }>) {
   return (
     <html lang="ja" className={clsx(notoSansJP.variable, 'font-sans')}>
-      <body>
-        <Providers>{children}</Providers>
-
-        <Toaster />
-      </body>
+      <Providers>
+        <body>
+          {children}
+          <Toaster />
+          {modal}
+        </body>
+      </Providers>
     </html>
   )
 }

@@ -1,12 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-
-import Unenrollconfirmation from '../molecures/UnenrollConfirmation'
-import { Button } from '../ui/button'
-import { Skeleton } from '../ui/skeleton'
 import { toast } from 'sonner'
-import { useRouter } from 'next/navigation'
+
+import Unenrollconfirmation from '@/components/molecures/UnenrollConfirmation'
+import { Skeleton } from '@/components/ui/skeleton'
+import { Button } from '@/components/ui/button'
 
 export default function EnrollControlButton({
   courseId
@@ -15,7 +14,6 @@ export default function EnrollControlButton({
 }) {
   const [data, setData] = useState<{ connected: boolean }>({ connected: false })
   const [loading, setLoading] = useState(true)
-  const router = useRouter()
 
   const fetchData = async () => {
     setLoading(true)
@@ -40,14 +38,13 @@ export default function EnrollControlButton({
     })
     const json = await response.json()
     if (!response.ok) {
-      toast('エラーが発生しました。もう一度お試しください。\n' + json.error)
+      toast('エラーが発生しました: ' + json.error)
       setLoading(false)
       return
     }
 
     toast(connectionType === 'connect' ? '登録しました' : '登録を解除しました')
     setData((pr) => ({ connected: !pr.connected }))
-    router.refresh()
     setLoading(false)
   }
 
@@ -55,20 +52,19 @@ export default function EnrollControlButton({
     fetchData()
   }, [])
 
+  if (loading) return <Skeleton className="flex-grow h-10" />
+
+  if (data.connected)
+    return (
+      <Unenrollconfirmation
+        className="flex-grow"
+        action={updateConnectionState}
+      />
+    )
+
   return (
-    <>
-      {loading ? (
-        <Skeleton className="flex-grow h-10" />
-      ) : data.connected ? (
-        <Unenrollconfirmation
-          className="flex-grow"
-          action={updateConnectionState}
-        />
-      ) : (
-        <Button className="flex-grow" onClick={updateConnectionState}>
-          授業を登録する
-        </Button>
-      )}
-    </>
+    <Button className="flex-grow" onClick={updateConnectionState}>
+      授業を登録する
+    </Button>
   )
 }

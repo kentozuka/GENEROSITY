@@ -14,7 +14,7 @@ import {
 
 export default function CourseCard({ course }: { course: CompeleteCourse }) {
   return (
-    <Link href={`/detail/${course.id}`}>
+    <Link href={`/detail/${course.id}`} scroll={false}>
       <Card>
         <CardHeader>
           <CardTitle className="text-lg line-clamp-1">{course.title}</CardTitle>

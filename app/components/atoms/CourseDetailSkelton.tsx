@@ -26,14 +26,14 @@ export default function CourseDetailContent() {
         <Skeleton className="h-10 w-14" />
       </div>
 
-      <div className="max-w-lg">
+      <div className="w-full">
         <NonFunctionalTabs />
 
         <div className="py-8">
           <div className="pb-4">
             <h2 className="text-lg">副題</h2>
             <div className="py-2">
-              <MultiLine />
+              <MultiLine length={3} />
             </div>
           </div>
 
