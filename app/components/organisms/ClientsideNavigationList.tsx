@@ -31,7 +31,7 @@ export default function ClientsideNavigationList() {
       href: '/favorite',
       icon: 'heart',
       text: 'お気に入り授業',
-      active: false
+      active: pathname === '/favorite'
     }
   ]
 
