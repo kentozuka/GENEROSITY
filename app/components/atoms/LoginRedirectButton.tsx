@@ -1,14 +1,11 @@
-import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 
 export default function LoginRedirectButton() {
-  // TODO: use ? to set return url
-  const handleClick = () => redirect('/login')
-
   return (
-    <Button type="button" className="bg-generous-600" onClick={handleClick}>
+    <Link href="/login" className={buttonVariants()}>
       ログイン
-    </Button>
+    </Link>
   )
 }
