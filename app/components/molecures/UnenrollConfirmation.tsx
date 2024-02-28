@@ -14,9 +14,11 @@ import {
 } from '@/components/ui/alert-dialog'
 
 export default function Unenrollconfirmation({
-  className
+  className,
+  action
 }: {
   className?: string
+  action: () => void
 }) {
   return (
     <AlertDialog>
@@ -37,7 +39,7 @@ export default function Unenrollconfirmation({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>キャンセル</AlertDialogCancel>
-          <AlertDialogAction>取り消す</AlertDialogAction>
+          <AlertDialogAction onClick={action}>取り消す</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

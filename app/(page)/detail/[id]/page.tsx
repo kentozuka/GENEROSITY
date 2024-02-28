@@ -1,7 +1,8 @@
-import CourseDetailSkelton from '@/components/molecures/CourseDetailSkelton'
-import CourseDetailContent from '@/components/molecures/CourseDetailContent'
-import db from '@/lib/db'
 import { Suspense } from 'react'
+
+import CourseDetailContent from '@/components/molecures/CourseDetailContent'
+import CourseDetailSkelton from '@/components/atoms/CourseDetailSkelton'
+import db from '@/lib/db'
 
 const ChildrenBoundary = async ({ id }: { id: string }) => {
   const course = await db.course.findUnique({
@@ -31,8 +32,13 @@ export default async function Detail({
   params: { id: string }
 }) {
   return (
-    <Suspense fallback={<CourseDetailSkelton />}>
-      <ChildrenBoundary id={id} />
-    </Suspense>
+    <>
+      <div className="py-4">
+        <p className="">一覧に戻る</p>
+      </div>
+      <Suspense fallback={<CourseDetailSkelton />}>
+        <ChildrenBoundary id={id} />
+      </Suspense>
+    </>
   )
 }
