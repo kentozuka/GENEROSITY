@@ -10,7 +10,7 @@ export default function TimeDisplay({
   return (
     <div className="flex items-center gap-1">
       <Weekday dayIndex={dayIndex} />
-      <p className="text-sm">{period}時限</p>
+      <p className="text-sm text-generous-500">{period}時限</p>
     </div>
   )
 }

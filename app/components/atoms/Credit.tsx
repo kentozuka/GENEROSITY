@@ -25,7 +25,9 @@ export default function Credit({ count }: { count?: number }) {
           stroke="#555555"
         />
       </svg>
-      <p className="text-sm align-baseline">{count || 0}単位</p>
+      <p className="text-sm align-baseline text-generous-500">
+        {count || 0}単位
+      </p>
     </div>
   )
 }
