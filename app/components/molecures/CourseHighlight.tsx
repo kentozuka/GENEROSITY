@@ -1,5 +1,5 @@
-import Icon, { IconType } from '../atoms/Icon'
-import CourseCard from './CourseCard'
+import CourseCard from '@/components/molecures/CourseCard'
+import Icon, { IconType } from '@/components/atoms/Icon'
 import { CompeleteCourse } from '@/types'
 
 export default async function CourseHighlight({

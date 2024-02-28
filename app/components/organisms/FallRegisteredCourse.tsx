@@ -1,8 +1,12 @@
+import EmptyRegisteredCourseState from '@/components/atoms/EmptyRegisteredCourseState'
+import RegisteredCourse from '@/components/molecures/RegisteredCourse'
 import { getFallCourses } from '@/actions/getUserCourses'
-import RegisteredCourse from '../molecures/RegisteredCourse'
 
 export default async function FallRegisteredCourse() {
   const courses = await getFallCourses()
+  const term = '秋学期'
 
-  return <RegisteredCourse term="秋学期" courses={courses} />
+  if (courses.length === 0) return <EmptyRegisteredCourseState term={term} />
+
+  return <RegisteredCourse term={term} courses={courses} />
 }

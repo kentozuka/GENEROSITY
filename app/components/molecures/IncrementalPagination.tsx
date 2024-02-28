@@ -5,18 +5,7 @@ import {
   PaginationNext,
   PaginationPrevious
 } from '@/components/ui/pagination'
-
-const factory = (page: number, max: number, searchParams: any) => {
-  const isActive = page > 0 && page <= max
-  const sParams = new URLSearchParams({
-    ...searchParams,
-    page
-  })
-  if (!isActive) sParams.delete('page')
-  const params = sParams.toString()
-  const href = '/result' + (params ? `?${params}` : '')
-  return { isActive, href }
-}
+import { usePaginationFactory } from '@/hooks/usePaginationFactory'
 
 export default function IncrementalPagination({
   page,
@@ -25,10 +14,10 @@ export default function IncrementalPagination({
 }: {
   page: number
   maxPage: number
-  searchParams: any
+  searchParams: Record<string, string>
 }) {
-  const previous = factory(page - 1, maxPage, searchParams)
-  const next = factory(page + 1, maxPage, searchParams)
+  const previous = usePaginationFactory(page - 1, maxPage, searchParams)
+  const next = usePaginationFactory(page + 1, maxPage, searchParams)
 
   return (
     <Pagination>

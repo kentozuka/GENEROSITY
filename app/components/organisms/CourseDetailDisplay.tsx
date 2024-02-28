@@ -1,24 +1,10 @@
 import CourseDetailContent from '@/components/molecures/CourseDetailContent'
-import db from '@/lib/db'
+import { getCourseById } from '@/actions/getCourseById'
 
 export default async function CourseDetailDisplay({ id }: { id: string }) {
-  const course = await db.course.findUnique({
-    where: {
-      id
-    },
-    include: {
-      faculty: true,
-      professor: true,
-      users: true
-    }
-  })
+  const course = await getCourseById(id)
 
-  if (course === null)
-    return (
-      <p className="">
-        no such class exist. go back and type in the correct url.
-      </p>
-    )
+  if (course === null) return <p className="py-6">該当する授業はありません。</p>
 
   return <CourseDetailContent course={course} />
 }

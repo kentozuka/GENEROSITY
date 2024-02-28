@@ -1,7 +1,8 @@
+import { Suspense } from 'react'
+
+import SpringRegisteredCourse from '@/components/organisms/SpringRegisteredCourse'
 import RegisteredCourseSkelton from '@/components/atoms/RegisteredCourseSkelton'
 import FallRegisteredCourse from '@/components/organisms/FallRegisteredCourse'
-import SpringRegisteredCourse from '@/components/organisms/SpringRegisteredCourse'
-import { Suspense } from 'react'
 
 export default async function Registered() {
   return (

@@ -1,8 +1,7 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
-import { signIn } from 'next-auth/react' // serverside auth does not work so ill opt for clientside
-
+import InputError from '@/components/atoms/InputError'
+import { useLoginForm } from '@/hooks/useLoginForm'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
@@ -13,20 +12,8 @@ export default function LoginForm({
   error?: string
   callbackUrl?: string
 }) {
-  const [loading, setLoading] = useState(false)
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const form = new FormData(e.currentTarget)
-    setLoading(true) // redirect automatically renew the page so no need to reset the loading state
-    await signIn('credentials', {
-      email: form.get('email'),
-      password: form.get('password'),
-      redirect: true,
-      callbackUrl: callbackUrl || '/registered'
-    })
-  }
+  const { loading, handleSubmit } = useLoginForm(callbackUrl)
+  const buttonLabel = loading ? 'ログイン中...' : 'ログイン'
 
   return (
     <form className="self-center w-full px-20 py-8" onSubmit={handleSubmit}>
@@ -44,11 +31,7 @@ export default function LoginForm({
         <Input name="password" type="password" placeholder="パスワード" />
       </div>
 
-      {error && (
-        <p className="pt-2 text-xs text-red-500">
-          メールアドレスまたはパスワードが間違っています
-        </p>
-      )}
+      <InputError error={error} />
 
       <div className="flex pt-8">
         <Button
@@ -56,7 +39,7 @@ export default function LoginForm({
           className="flex-grow bg-generous-600"
           disabled={loading}
         >
-          {loading ? 'ログイン中...' : 'ログイン'}
+          {buttonLabel}
         </Button>
       </div>
     </form>

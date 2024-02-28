@@ -1,4 +1,5 @@
 import { findCourses, validateSearchParams } from '@/actions/findCourses'
+import { CompeleteCourse } from '@/types'
 
 const stringAllowed = ['faculty', 'term']
 
@@ -19,10 +20,15 @@ const allowedStringParams = (sp: Record<string, string>) =>
   }, {})
 
 export const getCourseResult = async (
-  page: number,
   take: number,
   searchParams: Record<string, string>
-) => {
+): Promise<{
+  page: number
+  maxPage: number
+  total: string
+  courses: CompeleteCourse[]
+}> => {
+  const page = +searchParams.page || 1
   const skip = (page - 1) * take
 
   const numberSearchParams = saerchParamReducer(searchParams)
@@ -34,8 +40,15 @@ export const getCourseResult = async (
     ...stringSearchParams
   }
   const validatedRequest = await validateSearchParams(combo)
-  if (validatedRequest === null) return { courses: [], total: 0 }
+  if (validatedRequest === null)
+    return { courses: [], total: '0', page, maxPage: 1 }
 
-  const res = await findCourses(validatedRequest)
-  return res
+  const { total, courses } = await findCourses(validatedRequest)
+  const maxPage = Math.ceil(total / take)
+  return {
+    page,
+    maxPage,
+    total: total.toLocaleString(),
+    courses
+  }
 }
