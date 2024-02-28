@@ -22,7 +22,7 @@ export default function EnrollControlButton({
     return (
       <Link
         className={buttonVariants({ className: 'flex-grow' })}
-        href="/registered"
+        href={`/login?callbackUrl=/detail/${courseId}`}
       >
         ログインして授業を登録する
       </Link>
