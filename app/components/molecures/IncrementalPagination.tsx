@@ -5,7 +5,7 @@ import {
   PaginationNext,
   PaginationPrevious
 } from '@/components/ui/pagination'
-import { usePaginationFactory } from '@/hooks/usePaginationFactory'
+import { paginationFactory } from '@/actions/paginationFactory'
 
 export default function IncrementalPagination({
   page,
@@ -16,8 +16,8 @@ export default function IncrementalPagination({
   maxPage: number
   searchParams: Record<string, string>
 }) {
-  const previous = usePaginationFactory(page - 1, maxPage, searchParams)
-  const next = usePaginationFactory(page + 1, maxPage, searchParams)
+  const previous = paginationFactory(page - 1, maxPage, searchParams)
+  const next = paginationFactory(page + 1, maxPage, searchParams)
 
   return (
     <Pagination>

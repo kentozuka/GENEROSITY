@@ -1,4 +1,4 @@
-export const usePaginationFactory = (
+export const paginationFactory = (
   page: number,
   max: number,
   searchParams: Record<string, string>
