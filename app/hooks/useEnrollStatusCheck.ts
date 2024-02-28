@@ -1,9 +1,11 @@
+import { useSession } from 'next-auth/react'
 import { useCallback, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
 export const useEnrollStatusCheck = (courseId: string) => {
   const [connected, setConnected] = useState(false)
   const [loading, setLoading] = useState(true)
+  const { status: authStatus } = useSession()
 
   const fetchData = useCallback(async () => {
     setLoading(true)
@@ -40,5 +42,5 @@ export const useEnrollStatusCheck = (courseId: string) => {
     fetchData()
   }, [fetchData])
 
-  return { loading, connected, update: updateConnectionState }
+  return { loading, connected, authStatus, update: updateConnectionState }
 }
