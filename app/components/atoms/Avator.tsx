@@ -12,7 +12,13 @@ export default function Avator({ src, alt }: { src?: string; alt?: string }) {
 
   return (
     <div className={clsx(sharedStyle, 'relative overflow-hidden')}>
-      <Image src={src} alt={altText} fill style={{ objectFit: 'cover' }} />
+      <Image
+        src={src}
+        alt={altText}
+        fill
+        style={{ objectFit: 'cover' }}
+        unoptimized
+      />
     </div>
   )
 }
