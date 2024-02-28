@@ -1,17 +1,66 @@
-# GENEROSITY 提出課題
+# GENEROSITY
 
-## 技術スタック
+授業登録システムのモック
+
+## システムのアクセス方法
+
+1. [GENEROSITY](https://generosity.vercel.app)にアクセスする
+2. 下記ユーザーを使ってログイン (授業登録以外は未ログインでも使用可能)
+3. [授業の閲覧・登録](https://generosity.vercel.app/registered)、[パスワードの変更](https://generosity.vercel.app/password)が可能
+
+```
+メールアドレス：test@test.com
+パスワード：test
+```
+
+```
+メールアドレス：kentozuka@ruri.waseda.jp
+パスワード：generosity
+```
+
+```
+メールアドレス：anonymous@name.com
+パスワード：anonymous
+```
+
+## 初期パスワードに戻す
+
+上記のパスワードが使用できない場合は、[/api/auth/password](https://generosity.vercel.app/api/auth/password)にアクセスするか GET リクエストを行えば初期化されます。
+
+## 作成内容
+
+### 技術スタック
 
 - フロントエンド：React (Next.js)
 - バックエンド：Next.js
 - データベース：PostgreSQL
 - インフラ：Vercel
 
-## 作成にかかった時間
+### 所要時間
 
 約 28 時間（[Wakatime](https://wakatime.com/@6349807e-05ff-4de4-a2db-b1681b3c76c6/projects/zkhjrzzqzx?start=2024-02-22&end=2024-02-28)参照）
 
-## 始めるにあたって
+### 作成した機能
+
+- パスワードの初期化機能
+- 授業の検索機能
+- [Intercepting Routes](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes)を用いた授業表示とログイン画面の表示  
+  (例: インスタグラムの投稿表示モーダルと URL に直接アクセスする際に異なる画面で表示される機能)
+- スケルトンスクリーンを使用して検索の待ち時間を[不快に感じにくする UI](https://generosity.vercel.app/result)
+- サーバーサイドコンポーネントとクライアントコンポーネントを用いたストレスのない UX
+
+### 作成が間に合わなかったが、作りたかった機能
+
+- レスポンシブ対応
+- お気に入り機能
+- 関連する授業を内容ごとにまとめる
+- ユーザーの詳細入力
+- ユーザーにおすすめの授業提案
+- サムネイルの AI 生成
+
+などなど
+
+## 開発を始めるにあたって
 
 ### dependency のインストール
 
