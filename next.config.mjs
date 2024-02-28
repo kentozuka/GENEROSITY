@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    // allow hostname "i.pravatar.cc" for images
+    // domains: ['i.pravatar.cc'] // deprecated
+  }
+}
 
-export default nextConfig;
+export default nextConfig
