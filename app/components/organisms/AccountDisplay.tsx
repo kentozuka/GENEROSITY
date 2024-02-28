@@ -16,7 +16,7 @@ export default function AccountDisplay({ name }: { name: string }) {
   const avatorUrl = `https://i.pravatar.cc/150?u=${name}`
 
   return (
-    <div className="flex justify-between px-4 py-5 border border-transparent rounded">
+    <div className="flex justify-between p-2 border border-transparent rounded md:px-4 md:py-5">
       <div className="flex items-center gap-4">
         <Avator src={avatorUrl} />
         <p>{name}</p>

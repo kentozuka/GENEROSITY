@@ -22,7 +22,7 @@ export default function Navigation() {
 
       <div className="flex items-center justify-between md:hidden">
         <Link href="/" className="block">
-          <Logo />
+          <Logo width={86} />
         </Link>
 
         <MobileNavigationItems />
