@@ -1,5 +1,6 @@
 import IncrementalPagination from '@/components/molecures/IncrementalPagination'
 import CourseResultDisplay from '@/components/molecures/CourseResultDisplay'
+import EmptyResultBanner from '@/components/atoms/EmptyResultBanner'
 import { getCourseResult } from '@/actions/getCourseResult'
 
 export default async function CourseResult({
@@ -13,6 +14,8 @@ export default async function CourseResult({
     take,
     searchParams
   )
+
+  if (total === '0') return <EmptyResultBanner />
 
   return (
     <div className="py-6">
