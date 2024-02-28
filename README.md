@@ -9,7 +9,7 @@
 
 ## 作成にかかった時間
 
-約 時間（[Wakatime](https://wakatime.com/@6349807e-05ff-4de4-a2db-b1681b3c76c6/projects/zkhjrzzqzx?start=2024-02-15&end=2024-02-21)参照）
+約 28 時間（[Wakatime](https://wakatime.com/@6349807e-05ff-4de4-a2db-b1681b3c76c6/projects/zkhjrzzqzx?start=2024-02-22&end=2024-02-28)参照）
 
 ## 始めるにあたって
 
@@ -27,6 +27,7 @@ touch .env.local
 
 以下の内容を記入（Vercel の Storage タブからコピー）
 
+- NEXTAUTH_SECRET
 - POSTGRES_URL
 - POSTGRES_PRISMA_URL
 - POSTGRES_URL_NO_SSL
