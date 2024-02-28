@@ -10,8 +10,8 @@ export default function CourseDetailContent() {
   return (
     <div className="py-8">
       <div className="flex flex-col gap-1">
-        <Skeleton className="h-6 max-w-sm" />
-        <Skeleton className="h-4 w-[200px]" />
+        <Skeleton className="w-[300px] max-w-sm md:w-[1000px] h-4 md:max-w-lg" />
+        <Skeleton className="w-1/2 h-4" />
       </div>
 
       <div className="flex gap-4 py-2">

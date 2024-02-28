@@ -1,14 +1,14 @@
 'use client'
 
+import StatusBasedAccountDisplay from '@/components/organisms/StatusBasedAccountDisplay'
+import ClientsideNavigationList from '@/components/organisms/ClientsideNavigationList'
+import { Button } from '@/components/ui/button'
+import Icon from '@/components/atoms/Icon'
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent
 } from '@radix-ui/react-dropdown-menu'
-import Icon from '../atoms/Icon'
-import { Button } from '../ui/button'
-import ClientsideNavigationList from './ClientsideNavigationList'
-import StatusBasedAccountDisplay from './StatusBasedAccountDisplay'
 
 export default function MobileNavigationItems() {
   return (
@@ -19,7 +19,7 @@ export default function MobileNavigationItems() {
             <Icon type="menu" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="flex flex-col gap-2 p-4 rounded bg-generous-100">
+        <DropdownMenuContent className="flex flex-col gap-2 p-4 border rounded shadow-xl bg-generous-100">
           <ClientsideNavigationList />
           <StatusBasedAccountDisplay />
         </DropdownMenuContent>

@@ -7,7 +7,7 @@ import MobileNavigationItems from './MobileNavigationItems'
 
 export default function Navigation() {
   return (
-    <aside className="sticky top-0 z-50 p-3 md:p-4 md:h-screen md:col-span-1 bg-generous-200 md:bg-generous-100">
+    <aside className="sticky top-0 z-30 p-3 md:p-4 md:h-screen md:col-span-1 bg-generous-200 md:bg-generous-100">
       <div className="flex-col justify-between hidden h-full md:flex">
         <div>
           <Link href="/" className="block px-4 pt-6 pb-20">

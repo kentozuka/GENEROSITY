@@ -10,7 +10,7 @@ export default function ModalWrapper({
     longContent && 'h-full'
   )
   return (
-    <div className="fixed top-0 grid w-screen h-screen p-4 md:p-12 bg-generous-500/50 place-items-center">
+    <div className="fixed top-0 z-50 grid w-screen h-screen p-4 md:p-12 bg-generous-500/50 place-items-center">
       <div className={innerClass}>{children}</div>
     </div>
   )
