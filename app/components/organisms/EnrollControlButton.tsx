@@ -1,10 +1,11 @@
 'use client'
 
+import Link from 'next/link'
+
 import Unenrollconfirmation from '@/components/molecures/UnenrollConfirmation'
 import { useEnrollStatusCheck } from '@/hooks/useEnrollStatusCheck'
-import { Skeleton } from '@/components/ui/skeleton'
 import { Button, buttonVariants } from '@/components/ui/button'
-import Link from 'next/link'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export default function EnrollControlButton({
   courseId
@@ -21,7 +22,7 @@ export default function EnrollControlButton({
     return (
       <Link
         className={buttonVariants({ className: 'flex-grow' })}
-        href="/login"
+        href="/registered"
       >
         ログインして授業を登録する
       </Link>
