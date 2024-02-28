@@ -10,7 +10,7 @@ export default function RegisteredCourse({
   courses: CompeleteCourse[]
 }) {
   return (
-    <div className="pb-8">
+    <div className="pb-4 md:pb-8">
       <p className="py-4 text-xl font-bold">
         {term}
         <span className="pl-2 text-xs font-normal align-middle text-generous-500">
@@ -18,7 +18,7 @@ export default function RegisteredCourse({
         </span>
       </p>
 
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid gap-2 md:grid-cols-3">
         {courses.map((course) => (
           <CourseActionCard key={course.id} course={course} />
         ))}

@@ -19,7 +19,7 @@ export default function SearchForm() {
   return (
     <div className="pb-8">
       <p className="pb-2 text-lg">授業を検索</p>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-1 md:gap-2 md:flex-nowrap">
         <Select name="faculty" {...facultySet}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="学部を選択" />
@@ -69,8 +69,12 @@ export default function SearchForm() {
           </SelectContent>
         </Select>
 
-        <Link href={href} className={buttonVariants()}>
+        <Link
+          href={href}
+          className={buttonVariants({ className: 'w-full md:w-auto' })}
+        >
           <Icon type="search" />
+          <span className="pl-2 align-middle md:hidden">検索</span>
         </Link>
       </div>
     </div>

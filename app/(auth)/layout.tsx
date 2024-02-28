@@ -9,17 +9,17 @@ export default function AuthLayout({
   children: React.ReactNode
 }) {
   return (
-    <main className="grid grid-cols-12 h-screen w-screen">
-      <div className="col-span-5 p-12 flex flex-col justify-between h-full">
+    <main className="grid w-screen h-screen md:grid-cols-12">
+      <div className="flex flex-col justify-between h-full p-6 md:p-12 md:col-span-5">
         <Logo />
         {children}
-        <p className="text-generous-500 text-sm text-center py-6">
+        <p className="py-6 text-sm text-center text-generous-500">
           利用規約・プライバシーポリシー
         </p>
       </div>
 
-      <div className="p-4 col-span-7">
-        <div className="bg-generous-600 rounded-lg h-full">
+      <div className="hidden col-span-7 p-4 md:block">
+        <div className="h-full rounded-lg bg-generous-600">
           <Suspense>
             <UnnecessaryTorusKnot />
           </Suspense>

@@ -7,7 +7,7 @@ export default function CourseResultDisplay({
   courses: CompeleteCourse[]
 }) {
   return (
-    <div className="grid grid-cols-3 gap-2 pb-8">
+    <div className="grid gap-2 pb-8 md:grid-cols-3">
       {courses.map((course) => (
         <CourseCard key={course.id} course={course} />
       ))}

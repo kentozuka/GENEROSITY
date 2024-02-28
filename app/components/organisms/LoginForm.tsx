@@ -16,7 +16,10 @@ export default function LoginForm({
   const buttonLabel = loading ? 'ログイン中...' : 'ログイン'
 
   return (
-    <form className="self-center w-full px-20 py-8" onSubmit={handleSubmit}>
+    <form
+      className="self-center w-full p-4 md:px-12 md:py-8"
+      onSubmit={handleSubmit}
+    >
       <div className="pb-8">
         <p className="pb-1 text-xl font-bold text-generous-600">
           授業管理にログイン

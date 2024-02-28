@@ -8,7 +8,7 @@ export default function CourseResultSkelton() {
         <Skeleton className="w-20 h-4" />
       </div>
 
-      <div className="grid grid-cols-3 gap-2 pb-8">
+      <div className="grid gap-2 pb-8 md:grid-cols-3">
         {Array.from({ length: 27 }).map((_, i) => (
           <Skeleton key={i} className="w-full h-64" />
         ))}

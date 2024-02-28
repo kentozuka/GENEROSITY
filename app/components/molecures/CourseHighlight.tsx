@@ -19,9 +19,9 @@ export default async function CourseHighlight({
         </span>
         {title}
       </p>
-      <div className="flex w-full gap-2 pb-4 overflow-x-scroll">
+      <div className="flex flex-wrap w-full gap-2 pb-4 overflow-visible md:flex-nowrap md:overflow-x-scroll">
         {courses.map((course) => (
-          <div className="flex-[0_0_30%]" key={course.id}>
+          <div className="md:flex-[0_0_30%]" key={course.id}>
             <CourseCard course={course} />
           </div>
         ))}
