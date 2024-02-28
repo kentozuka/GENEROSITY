@@ -44,7 +44,7 @@
 
 - パスワードの初期化機能
 - 授業の検索機能
-- [Intercepting Routes](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes)を用いた授業表示とログイン画面の表示  
+- [Intercepting Routes](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes)を用いた授業表示
   (例: インスタグラムの投稿表示モーダルと URL に直接アクセスする際に異なる画面で表示される機能)
 - スケルトンスクリーンを使用して検索の待ち時間を[不快に感じにくする UI](https://generosity.vercel.app/result)
 - サーバーサイドコンポーネントとクライアントコンポーネントを用いたストレスのない UX
