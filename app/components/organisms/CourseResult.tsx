@@ -9,17 +9,17 @@ export default async function CourseResult({
   take: number
   searchParams: any
 }) {
-  const page = +searchParams.page || 1
-
-  const { courses, total } = await getCourseResult(page, take, searchParams)
-  const maxPage = Math.ceil(total / take)
+  const { page, total, maxPage, courses } = await getCourseResult(
+    take,
+    searchParams
+  )
 
   return (
     <div className="py-6">
       <p className="pb-4 text-xl">
         検索結果
         <span className="pl-2 text-sm align-middle text-generous-500">
-          - {total.toLocaleString()}件
+          - {total}件
         </span>
       </p>
 
