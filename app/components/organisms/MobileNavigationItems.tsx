@@ -19,7 +19,7 @@ export default function MobileNavigationItems() {
             <Icon type="menu" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="flex flex-col gap-2 p-4 border rounded shadow-xl bg-generous-100">
+        <DropdownMenuContent className="flex flex-col w-64 gap-2 p-4 border rounded shadow-xl bg-generous-100">
           <ClientsideNavigationList />
           <StatusBasedAccountDisplay />
         </DropdownMenuContent>
