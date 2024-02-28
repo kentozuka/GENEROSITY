@@ -17,7 +17,11 @@ import {
 
 export default function CourseCard({ course }: { course: CompeleteCourse }) {
   return (
-    <Link href={`/detail/${course.id}`} className="cursor-pointer">
+    <Link
+      href={`/detail/${course.id}`}
+      className="cursor-pointer"
+      scroll={false}
+    >
       <Card>
         <CardHeader>
           <div>

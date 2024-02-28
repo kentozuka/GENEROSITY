@@ -1,12 +1,12 @@
+import EnrollControlButton from '@/components/organisms/EnrollControlButton'
+import NonFunctionalTabs from '@/components/atoms/NonFunctionalTabs'
+import ProfileDisplay from '@/components/molecures/ProfileDisplay'
+import TimeDisplay from '@/components/molecures/TimeDisplay'
+import { Button } from '@/components/ui/button'
+import Credit from '@/components/atoms/Credit'
+import Term from '@/components/atoms/Term'
+import Icon from '@/components/atoms/Icon'
 import { CompeleteCourse } from '@/types'
-import Credit from '../atoms/Credit'
-import Icon from '../atoms/Icon'
-import NonFunctionalTabs from '../atoms/NonFunctionalTabs'
-import Term from '../atoms/Term'
-import ProfileDisplay from './ProfileDisplay'
-import TimeDisplay from './TimeDisplay'
-import { Button } from '../ui/button'
-import EnrollControlButton from '../organisms/EnrollControlButton'
 
 export default function CourseDetailContent({
   course
@@ -15,7 +15,7 @@ export default function CourseDetailContent({
 }) {
   return (
     <div className="py-8">
-      <h1 className="text-xl">{course.title}</h1>
+      <h1 className="max-w-md text-xl">{course.title}</h1>
       <p className="text-sm text-generous-500">{course.faculty.name}</p>
 
       <div className="flex gap-4 py-2">
@@ -23,7 +23,11 @@ export default function CourseDetailContent({
         <Term text={course.term} />
         <TimeDisplay dayIndex={course.weekday} period={course.period} />
       </div>
-      <ProfileDisplay id={course.professor.id} name={course.professor.name} />
+      <ProfileDisplay
+        id={course.professor.id}
+        name={course.professor.name}
+        fullLength
+      />
 
       <div className="flex max-w-sm gap-2 py-6">
         <EnrollControlButton courseId={course.id} />
