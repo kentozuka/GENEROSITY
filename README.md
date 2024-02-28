@@ -38,7 +38,7 @@
 
 ### 所要時間
 
-約 28 時間（[Wakatime](https://wakatime.com/@6349807e-05ff-4de4-a2db-b1681b3c76c6/projects/zkhjrzzqzx?start=2024-02-22&end=2024-02-28)参照）
+約 30 時間（[Wakatime](https://wakatime.com/@6349807e-05ff-4de4-a2db-b1681b3c76c6/projects/zkhjrzzqzx)参照）
 
 ### 作成した機能
 
