@@ -1,5 +1,5 @@
+import RegisteredCourse from '@/components/molecures/RegisteredCourse'
 import { getFallCourses } from '@/actions/getUserCourses'
-import RegisteredCourse from '../molecures/RegisteredCourse'
 
 export default async function FallRegisteredCourse() {
   const courses = await getFallCourses()

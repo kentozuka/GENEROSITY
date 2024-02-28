@@ -1,5 +1,6 @@
-import { object, number, string, InferType, mixed } from 'yup'
+import { object, number, InferType, mixed } from 'yup'
 import { Prisma } from '@prisma/client'
+
 import db from '@/lib/db'
 
 const possibleTerms = ['春学期', '秋学期']

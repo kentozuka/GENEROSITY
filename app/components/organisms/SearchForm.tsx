@@ -1,13 +1,14 @@
-import Icon from '../atoms/Icon'
-import { Button } from '../ui/button'
+import { redirect } from 'next/navigation'
+
+import { Button } from '@/components/ui/button'
+import Icon from '@/components/atoms/Icon'
 import {
   Select,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem
-} from '../ui/select'
-import { redirect } from 'next/navigation'
+} from '@/components/ui/select'
 
 export default async function SearchForm() {
   const formHandler = async (formData: FormData) => {

@@ -1,4 +1,4 @@
-import Weekday from '../atoms/Weekday'
+import Weekday from '@/components/atoms/Weekday'
 
 export default function TimeDisplay({
   dayIndex,
@@ -8,7 +8,7 @@ export default function TimeDisplay({
   period?: number
 }) {
   return (
-    <div className="flex gap-1 items-center">
+    <div className="flex items-center gap-1">
       <Weekday dayIndex={dayIndex} />
       <p className="text-sm">{period}時限</p>
     </div>

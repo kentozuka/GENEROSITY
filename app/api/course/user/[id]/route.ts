@@ -1,6 +1,7 @@
+import { NextResponse } from 'next/server'
+
 import { BAD_REQUEST, userNotFound } from '@/api/lib/response'
 import db from '@/lib/db'
-import { NextResponse } from 'next/server'
 
 export async function GET(req: Request, context: any) {
   const {

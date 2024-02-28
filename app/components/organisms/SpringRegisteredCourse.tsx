@@ -1,4 +1,4 @@
-import RegisteredCourse from '../molecures/RegisteredCourse'
+import RegisteredCourse from '@/components/molecures/RegisteredCourse'
 import { getSpringCourses } from '@/actions/getUserCourses'
 
 export default async function SpringRegisteredCourse() {
