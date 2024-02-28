@@ -9,6 +9,8 @@ import {
   userNotFound
 } from '@/api/lib/response'
 
+import { userData } from '../../../../prisma/userSeed'
+
 export async function POST(req: Request) {
   const user = await db.user.current()
 
@@ -46,37 +48,21 @@ export async function POST(req: Request) {
   })
 }
 
-export async function GET(req: Request) {
-  // disable this endpoint in production
-  if (process.env.NODE_ENV === 'production') {
-    return NextResponse.json(
-      {
-        error: 'not found'
-      },
-      { status: 404 }
-    )
-  }
-
-  const { searchParams } = new URL(req.url)
-  const email = searchParams.get('email')
-
-  const defaultPassword = 'test'
-  const saltRounds = 12
-  const hashedPassword = await hash(defaultPassword, saltRounds)
-
-  if (!email) {
-    return NextResponse.json({
-      error: 'email not found',
-      status: 400
-    })
-  }
-
-  const res = await db.user.update({
-    where: { email },
-    data: {
-      password: hashedPassword
+export async function GET() {
+  const users = await userData()
+  try {
+    for (const user of users) {
+      await db.user.update({
+        where: {
+          email: user.email
+        },
+        data: {
+          password: user.password
+        }
+      })
     }
-  })
-
-  return NextResponse.json(res)
+    return NextResponse.json({ message: '初期パスワードに戻しました。' })
+  } catch {
+    return NextResponse.json({ message: 'failed' })
+  }
 }
