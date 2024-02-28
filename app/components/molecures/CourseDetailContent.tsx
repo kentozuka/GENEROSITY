@@ -23,7 +23,11 @@ export default function CourseDetailContent({
         <Term text={course.term} />
         <TimeDisplay dayIndex={course.weekday} period={course.period} />
       </div>
-      <ProfileDisplay id={course.professor.id} name={course.professor.name} />
+      <ProfileDisplay
+        id={course.professor.id}
+        name={course.professor.name}
+        fullLength
+      />
 
       <div className="flex max-w-sm gap-2 py-6">
         <EnrollControlButton courseId={course.id} />
