@@ -9,12 +9,10 @@ import TimeDisplay from '../molecures/TimeDisplay'
 export default function CourseDetailContent() {
   return (
     <div className="py-8">
-      <h1 className="pb-2 text-xl">
-        <Skeleton className="h-8 max-w-sm" />
-      </h1>
-      <p className="text-sm text-generous-500">
+      <div className="flex flex-col gap-1">
+        <Skeleton className="h-6 max-w-sm" />
         <Skeleton className="h-4 w-[200px]" />
-      </p>
+      </div>
 
       <div className="flex gap-4 py-2">
         <Credit />
@@ -34,23 +32,23 @@ export default function CourseDetailContent() {
         <div className="py-8">
           <div className="pb-4">
             <h2 className="text-lg">副題</h2>
-            <p className="py-2 whitespace-pre-wrap text-generous-600">
+            <div className="py-2">
               <MultiLine />
-            </p>
+            </div>
           </div>
 
           <div className="pb-4">
             <h2 className="text-lg">授業概要</h2>
-            <p className="py-2 whitespace-pre-wrap text-generous-600">
+            <div className="py-2">
               <MultiLine />
-            </p>
+            </div>
           </div>
 
           <div className="pb-4">
             <h2 className="text-lg">授業計画</h2>
-            <p className="py-2 whitespace-pre-wrap text-generous-600">
+            <div className="py-2">
               <MultiLine />
-            </p>
+            </div>
           </div>
         </div>
       </div>
