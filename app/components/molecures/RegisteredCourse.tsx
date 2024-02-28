@@ -9,14 +9,6 @@ export default function RegisteredCourse({
   term: string
   courses: CompeleteCourse[]
 }) {
-  if (courses.length === 0)
-    return (
-      <div className="pb-8">
-        <p className="py-4 text-xl font-bold">{term}</p>
-        <EmptyCourseBanner />
-      </div>
-    )
-
   return (
     <div className="pb-8">
       <p className="py-4 text-xl font-bold">
