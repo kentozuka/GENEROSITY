@@ -44,6 +44,7 @@
 
 - パスワードの初期化機能
 - 授業の検索機能
+- レスポンシブ対応
 - [Intercepting Routes](https://nextjs.org/docs/app/building-your-application/routing/intercepting-routes)を用いた授業表示
   (例: インスタグラムの投稿表示モーダルと URL に直接アクセスする際に異なる画面で表示される機能)
 - スケルトンスクリーンを使用して検索の待ち時間を[不快に感じにくする UI](https://generosity.vercel.app/result)
@@ -51,7 +52,6 @@
 
 ### 作成が間に合わなかったが、作りたかった機能
 
-- レスポンシブ対応
 - お気に入り機能
 - 関連する授業を内容ごとにまとめる
 - ユーザーの詳細入力
