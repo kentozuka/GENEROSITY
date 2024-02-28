@@ -1,5 +1,9 @@
-import { submitSearch } from '@/actions/submitSearch'
-import { Button } from '@/components/ui/button'
+'use client'
+
+import Link from 'next/link'
+
+import { useClientSearch } from '@/hooks/useClientSearch'
+import { buttonVariants } from '@/components/ui/button'
 import Icon from '@/components/atoms/Icon'
 import {
   Select,
@@ -9,12 +13,14 @@ import {
   SelectItem
 } from '@/components/ui/select'
 
-export default async function SearchForm() {
+export default function SearchForm() {
+  const { href, facultySet, termSet, weekdaySet, periodSet } = useClientSearch()
+
   return (
     <div className="pb-8">
       <p className="pb-2 text-lg">授業を検索</p>
-      <form className="flex gap-2" action={submitSearch}>
-        <Select name="faculty">
+      <div className="flex gap-2">
+        <Select name="faculty" {...facultySet}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="学部を選択" />
           </SelectTrigger>
@@ -23,7 +29,8 @@ export default async function SearchForm() {
             <SelectItem value="政治経済学部">政治経済学部</SelectItem>
           </SelectContent>
         </Select>
-        <Select name="term">
+
+        <Select name="term" {...termSet}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="学期を選択" />
           </SelectTrigger>
@@ -32,7 +39,8 @@ export default async function SearchForm() {
             <SelectItem value="秋学期">秋学期</SelectItem>
           </SelectContent>
         </Select>
-        <Select name="weekday">
+
+        <Select name="weekday" {...weekdaySet}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="曜日を選択" />
           </SelectTrigger>
@@ -47,7 +55,7 @@ export default async function SearchForm() {
           </SelectContent>
         </Select>
 
-        <Select name="period">
+        <Select name="period" {...periodSet}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="時限を選択" />
           </SelectTrigger>
@@ -60,10 +68,11 @@ export default async function SearchForm() {
             <SelectItem value="6">6限目</SelectItem>
           </SelectContent>
         </Select>
-        <Button type="submit">
+
+        <Link href={href} className={buttonVariants()}>
           <Icon type="search" />
-        </Button>
-      </form>
+        </Link>
+      </div>
     </div>
   )
 }
